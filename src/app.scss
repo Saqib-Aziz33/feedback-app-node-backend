@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800&display=swap');
+*{
+    font-family: 'Lato', sans-serif !important;
+}
+body{
+    user-select: none;
+    #root{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Raleway', sans-serif !important;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(117, 117, 117);
+    border-radius: 50px;
+}
+::-webkit-scrollbar-track{
+    background-color: silver;
+}
+
+// ******************************* components *******************************
+.header{
+    .nav-list{
+        color: #3d3d3d;
+        a{
+            padding: 0.5rem;
+            font-weight: 600;
+        }
+        li+li{
+           margin-left: 1rem;
+        }
+    }
+    .nav-toggler, .close-btn{
+        display: none;
+    }
+        
+
+    @media only screen and (max-width: 600px){
+        .nav{
+            position: relative;
+            z-index: 6;
+        }
+        .overlay.active{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        .nav-list{
+            padding: 1rem;
+            box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease-out;
+            position: absolute;
+            flex-direction: column;
+            background-color: white;
+            z-index: 5;
+            top: -300px;
+            left: 0;
+            right: 0;
+            align-items: flex-start;
+            &.active{
+                top: 0;
+            }
+            li {
+                margin-left: 1rem;
+                margin-bottom: 0.5rem;margin-top: 0.5rem;
+                a{
+                    font-size: 1.2rem;
+                }
+            }
+        }
+        .nav-toggler, .close-btn{
+            display: block;
+        }
+        .close-btn{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}
+.fr-box{
+    width: 100%;
+}
+
+// ******************************* overrides *******************************
+
+
+
+
+// ******************************* utils *******************************
